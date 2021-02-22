@@ -26,7 +26,18 @@ A multi-recipient and destination messaging server.
 Features
 --------
 
-* TODO
+The project is still in its early stages, at present all the project is capable off is sending an email after receiving a REST call
+
+Configuration
+-------------
+
+tbd
+
+Usage
+-------
+To run the program, run the following from inside the kraken subfolder
+.. code-block:: python
+    uvicorn kraken:app --reload
 
 Credits
 -------

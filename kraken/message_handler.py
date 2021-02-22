@@ -15,13 +15,12 @@ class Message_handler(object):
         for receiver in receivers:
             try:
                 if receiver not in list(self.config["recipients"].keys()):
-                    #If the recipient is not in the configured list, do not do anything further and send feedback
+                    # If the recipient is not in the configured list, do not do anything further and send feedback
                     pass
-                if 'email' in list(self.config['recipients']['subscribers'].keys()):
+                if "email" in list(self.config["recipients"]["subscribers"].keys()):
                     self.send_email(receiver, title, message)
             except Exception as e:
                 print(e)
-
 
     def send_email(self, recipient, title, message):
         """
@@ -29,19 +28,22 @@ class Message_handler(object):
         """
         msg = EmailMessage()
         msg.set_content(message)
-        msg['subject'] = title
-        msg['From'] = self.config['senders']['Email']['From']
-        msg['To'] = ", ".join(self.config['recipients'][recipient]['email'])
-        destination = self.config['recipients'][recipient]['email']
-        SMTPserver = self.config['senders']['Email']['smtpurl']
-        
+        msg["subject"] = title
+        msg["From"] = self.config["senders"]["Email"]["From"]
+        msg["To"] = ", ".join(self.config["recipients"][recipient]["email"])
+        destination = self.config["recipients"][recipient]["email"]
+        SMTPserver = self.config["senders"]["Email"]["smtpurl"]
 
-        conn = SMTP(SMTPserver, self.config['senders']['Email']['smtpport'])
-        conn.login(self.config['senders']['Email']['From'], self.config['senders']['Email']['smtppass'])
+        conn = SMTP(SMTPserver, self.config["senders"]["Email"]["smtpport"])
+        conn.login(
+            self.config["senders"]["Email"]["From"],
+            self.config["senders"]["Email"]["smtppass"],
+        )
         try:
-            conn.sendmail(self.config['senders']['Email']['From'], destination, msg.as_string())
+            conn.sendmail(
+                self.config["senders"]["Email"]["From"], destination, msg.as_string()
+            )
         except Exception as e:
             print(e)
         finally:
             conn.quit()
-

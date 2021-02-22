@@ -20,6 +20,14 @@ kraken.kraken module
     :undoc-members:
     :show-inheritance:
 
+kraken.message\_handler module
+------------------------------
+
+.. automodule:: kraken.message_handler
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 
 Module contents
 ---------------
