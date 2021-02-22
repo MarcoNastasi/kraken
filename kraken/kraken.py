@@ -21,5 +21,5 @@ message_handler = Message_handler()
 
 @app.put("/message/")
 def update_message(message: Message):
-    response = message_handler.handler(message.recipients, message.title, message.contents)
+    response = message_handler.handler(message.recipients, message.subject, message.contents)
     return {"message_subect": message.subject, "message_recipiens": message.recipients}
