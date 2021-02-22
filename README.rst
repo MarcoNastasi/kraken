@@ -20,7 +20,6 @@ A multi-recipient and destination messaging server.
 
 
 * Free software: MIT license
-* Documentation: https://kraken.readthedocs.io.
 
 
 Features
